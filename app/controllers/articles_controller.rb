@@ -5,7 +5,11 @@ class ArticlesController < ApplicationController
 params[:id]
 )
   end
+
+
   def index
+
+    @articles=Article.all
 
   end
 

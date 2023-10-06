@@ -1,1 +1,21 @@
-<h1>index</h1>
+<h1>Article listing page</h1>
+<table>
+
+<thead>
+
+<tr>
+<td>Title</td>
+<td>Description</td>
+<td>Actoin</td>
+</tr>
+</thead>
+<tbody>
+<% @articles.each do |article|  %>
+<tr>
+<td><%= article.title %></td>
+<td> <%= article.description %></td>
+<td>placeholder</td>
+</tr>
+<% end %>
+</tbody>
+</table>
