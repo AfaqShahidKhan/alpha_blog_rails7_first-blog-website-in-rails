@@ -1,6 +1,6 @@
     <h1>Create new File</h1>
 
-   <% if @article.errors.any? %>
+  <% if @article.errors.any? %>
 
     <h2>The following errors are preventing details from saving</h2>
     <ul>
@@ -9,9 +9,7 @@
     <% end %>
      </ul>
   <% end %>
-   <% @article.errors.full_messages.each do |message| %>
-      <p class="text-danger"><%= message %></p>
-    <% end %>
+
 <%= form_with scope: :article, url: articles_path, local: true do |f| %>
       <p>
     <%= f.label :title, "Title" %><br/>

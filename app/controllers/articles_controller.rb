@@ -16,17 +16,35 @@ class ArticlesController < ApplicationController
      @article=Article.new
   end
 
-
+  def edit
+    @article=Article.find(
+    params[:id]
+  )
+  end
 
   def create
     @article = Article.new(article_params)
      if @article.save
-      flash[:notice]="Article is created successfully!"
+       flash[:notice]="Article is created successfully!"
        redirect_to @article
-        else
+      else
 
-        render :new
-      end
+        render 'new'
+
+       flash[:notice]="Article not created!"
+    end
+  end
+  def update
+   @article= Article.find(
+    params[:id]
+    )
+    if @article.update(article_params)
+      flash[:notice]="Article updated successfully!"
+      redirect_to @article
+     else
+      render 'edit'
+
+    end
   end
 
   private
