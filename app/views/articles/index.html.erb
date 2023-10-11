@@ -4,9 +4,9 @@
 <thead>
 
 <tr>
-<td>Title</td>
-<td>Description</td>
-<td>Actoin</td>
+<th>Title</th>
+<th>Description</th>
+<th colspan="3">Actoin</th>
 </tr>
 </thead>
 <tbody>
@@ -15,10 +15,13 @@
 <td><%= article.title %></td>
 <td> <%= article.description %></td>
 <td><%= link_to "Show", article_path(article) %></td>
-<td><%= link_to "Delete", article_path(article), method: :delete%></td>
+<td><%= link_to "Edit", edit_article_path(article) %></td>
+<td><%= link_to "Delete", article_path(article), method: :delete, data: { confirm: 'Are you sure?' }%></td>
 
-<td>placeholder</td>
+
 </tr>
 <% end %>
 </tbody>
 </table>
+<td><%= link_to "Create new Article", new_article_path %></td>
+<td><%= link_to "Home Page", root_path %></td>
