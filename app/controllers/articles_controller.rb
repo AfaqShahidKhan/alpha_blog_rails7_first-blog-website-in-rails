@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
-
-before_action :set_article, only: [:edit, :update, :show, :destory]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def show
 
@@ -42,12 +41,10 @@ before_action :set_article, only: [:edit, :update, :show, :destory]
 
     end
   end
-   def destroy
-
-      @article.destroy
-      redirect_to articles_path
-
-   end
+  def destroy
+    @article.destroy
+    redirect_to articles_path
+  end
 
   private
 
