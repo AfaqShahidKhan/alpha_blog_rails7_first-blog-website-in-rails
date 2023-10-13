@@ -1,27 +1,29 @@
-<h1>Article listing page</h1>
-<table>
-
-<thead>
-
-<tr>
-<th>Title</th>
-<th>Description</th>
-<th colspan="3">Actoin</th>
-</tr>
-</thead>
-<tbody>
-<% @articles.each do |article|  %>
-<tr>
-<td><%= article.title %></td>
-<td> <%= article.description %></td>
-<td><%= link_to "Show", article_path(article) %></td>
-<td><%= link_to "Edit", edit_article_path(article) %></td>
-<td><%= link_to "Delete", article_path(article), method: :delete, data: { confirm: 'Are you sure?' }%></td>
+<div id="page-content">
+  <h1 class="mt-4 text-center">Listing all Articles</h1>
+  <% @articles.each do |article|  %>
+    <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card text-center shadow mb-5 bg-white rounded">
+        <div class="card-header font-italic">
+          Afaq Shahid Khan
+        </div>
+        <div class="card-body">
+          <h5 class="card-title "><%= link_to article.title, article_path(article), class:"text-success" %></h5>
 
 
-</tr>
-<% end %>
-</tbody>
-</table>
-<td><%= link_to "Create new Article", new_article_path %></td>
-<td><%= link_to "Home Page", root_path %></td>
+          <p class="card-text"><%= truncate( article.description , length: 100) %></p>
+
+          <%= link_to "View", article_path(article), class:"btn btn-outline-success" %>
+          <%= link_to "Edit", edit_article_path(article), class:"btn btn-outline-info" %>
+          <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+
+
+        </div>
+        <div class="card-footer text-muted">
+         <small>Created <%= time_ago_in_words(article.created_at ) %> ago </small>
+        </div>
+      </div>
+      </div>
+    </div>
+  <% end %>
+</div>

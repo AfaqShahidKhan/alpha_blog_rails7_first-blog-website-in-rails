@@ -3,3 +3,11 @@
 // import "controllers"
 import Rails from "@rails/ujs";
 Rails.start();
+// Import Bootstrap
+import "bootstrap";
+
+// Import Popper.js
+import "popper.js";
+
+// Import jQuery (if needed)
+import "jquery";
