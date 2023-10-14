@@ -1,38 +1,33 @@
-
 <div class="container">
-  <% if @article.errors.any? %>
 
-    <h2>The following errors are preventing details from saving</h2>
-    <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+<%= render "shared/errors" %>
 
-  <% end %>
   <div class="row justify-content-center">
-
-   <div class="col-10">
-      <%= form_with(model: @article,class:"shadow p-3 mb-3 bg-info rounded", local: true)  do |f| %>
+    <div class="col-10">
+      <%= form_with(model: @article, class: "article-form shadow p-3 mb-3 bg-info rounded", local: true) do |f| %>
         <div class="form-group row">
+          <%= f.label :title, class: "col-2 col-form-label" %>
+          <div class="col-10">
+            <%= f.text_field :title, class: "form-control shadow rounded", placeholder: "Enter Title" %>
+          </div>
+        </div>
 
-          <%= f.label :title,  class:"col-2 col-form-lable" %>
+        <div class="form-group row">
+          <%= f.label :description, class: "col-2 col-form-label" %>
+          <div class="col-10">
+            <%= f.text_area :description, rows: 10, class: "form-control shadow rounded", placeholder: "Enter Description here..." %>
+          </div>
+        </div>
 
-            <div class="col-10">
-            <%= f.text_field :title, class:"form control shadow rounded", placeholder:"Enter Title" %>
-            </div>
+        <div class="form-group row justify-content-center">
+           <div class="">
+              <%= f.submit "Save Article", class:"btn btn-outline-light btn-lg mt-2" %>
+          </div>
 
         </div>
-          <div class="form-group row">
-            <%= f.label :description, class:"col-2 col-form-lable" %>
-            <%= f.text_area :description,rows:10, class:"form control shadow rounded",placeholder:"Enter Description here ..." %>
-          </div>
-          <div class="form-group row">
-            <%= f.submit class:"btn btn-outline-light btn-lg mt-2"%>
-          </div>
-
       <% end %>
+    </div>
 
-    <%= link_to "[ Cancel and Back to Articles ]", articles_path, class:"text-primary" %>
+    <%= link_to "Cancel and Back to Articles", articles_path,  class:"text-primary" %>
   </div>
- </div>
+</div>

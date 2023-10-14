@@ -1,6 +1,23 @@
-<h1>show</h1>
-<h3><strong>Title: </strong><%= @article.title %></h3>
-<h3><strong>Description: </strong><%= @article.description %></h3>
-<td><%= link_to "Edit", edit_article_path(@article) %></td>
-<td><%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }%></td>
-<td><%= link_to "Back to Articles", articles_path %></td>
+<h1 class="mt-4 text-center"><%= @article.title %></h1>
+<div class="row justify-content-md-center">
+  <div class="col-8 mt-4">
+    <div class="card text-center shadow mb-5 bg-white rounded">
+      <div class="card-header font-italic">
+        Afaq Shahid Khan
+      </div>
+      <div class="card-body">
+
+
+
+        <div class="card-text text-left" style="text-align: left;"><%= simple_format(@article.description )%></div>
+        <%= link_to "Edit", edit_article_path(@article), class:"btn btn-outline-info" %>
+        <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+        <%= link_to "Back to Articles", articles_path, class:"btn btn-outline-primary" %>
+
+      </div>
+      <div class="card-footer text-muted">
+        <small>Created <%= time_ago_in_words(@article.created_at ) %> ago </small>
+      </div>
+    </div>
+  </div>
+</div>
