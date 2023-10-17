@@ -27,6 +27,20 @@
     height: 425px;
   }
 
+  .profile-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Set an appropriate height for the container */
+  }
+  
+  .profile-image {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%; 
+  }
+  
+
 
 
   /* Id section */
