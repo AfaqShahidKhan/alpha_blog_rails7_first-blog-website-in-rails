@@ -3,7 +3,7 @@
   <div class="col-8 mt-4">
     <div class="card text-center shadow mb-5 bg-white rounded">
       <div class="card-header font-italic">
-      <% if article.user  %>
+      <% if article.user %>
 
       <%= link_to article.user.username, user_path(article.user) %>
       <% end %>
@@ -16,10 +16,16 @@
         <p class="card-text"><%= truncate( article.description , length: 100) %></p>
 
         <%= link_to "View", article_path(article), class:"btn btn-outline-success" %>
+
+        <% if logged_in? && article.user==current_user %>
+          <%= "User is logged in and is the author of the article" %>
+
         <%= link_to "Edit", edit_article_path(article), class:"btn btn-outline-info" %>
-        <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+        <%= button_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+        <% else %>
 
-
+        <%= "User is not logged in or is not the author of the article" %>
+        <% end %>
       </div>
       <div class="card-footer text-muted">
        <small>Created <%= time_ago_in_words(article.created_at ) %> ago </small>

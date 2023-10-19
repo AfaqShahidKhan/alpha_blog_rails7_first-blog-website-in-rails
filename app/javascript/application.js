@@ -10,4 +10,6 @@ import "bootstrap";
 import "popper.js";
 
 // Import jQuery (if needed)
-import "jquery";
+
+import "jquery"; // this import first
+import "script";

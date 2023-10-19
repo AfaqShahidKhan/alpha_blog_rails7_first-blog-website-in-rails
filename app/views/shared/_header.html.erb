@@ -28,7 +28,10 @@
                   <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to 'Logout', logout_path, class: "nav-link", method: :delete %>
+                <%= button_to "Log out",
+                logout_path,
+                method: :delete, data: { confirm: "Are you sure?" },
+                class: "nav-link" %>
                 </li>
               <% else %>
                 <li class="nav-item">
