@@ -44,8 +44,7 @@ gem "bootsnap", require: false
 
 gem 'rails-ujs'
 gem 'will_paginate', '~> 4.0'
-
-
+gem 'rexml', require: false
 # Use Sass to process CSS
 gem "sassc-rails"
 gem 'bootstrap-sass'
