@@ -1,5 +1,5 @@
 # README
-
+Hi this is afaqshahidkhan and i made this app for the learning purpose it just a simple app in ruby on rails for the blogging
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
